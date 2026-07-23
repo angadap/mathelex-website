@@ -1,0 +1,50 @@
+# Mathelex Website
+
+Marketing site for [Mathelex](https://mathmagic-295.pages.dev) — a gamified CBSE/ICSE math learning app for Nursery–Class 5.
+
+## Structure
+
+```
+mathelex-website/
+├── index.html        homepage (parent/kid-facing, playful design)
+├── schools.html       schools/principal-facing page (calmer, credibility-first)
+├── css/
+│   ├── home.css       styles for index.html
+│   └── schools.css    styles for schools.html
+├── js/
+│   ├── home.js         behavior for index.html
+│   └── schools.js      behavior for schools.html
+├── _headers            Cloudflare Pages security headers (CSP, etc.)
+└── README.md
+```
+
+CSS and JS are fully external — no `<style>` or inline `<script>` blocks remain in either HTML file. No inline event handlers (`onclick=`, etc.) are used; every interactive element uses a `data-open-modal` / `data-close-modal` attribute and is wired up in the matching JS file via `addEventListener`.
+
+The Mathelex logo is embedded as base64 inside each HTML file — no external image assets required.
+
+## Security
+
+- `_headers` sets a Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and a restrictive Permissions-Policy — Cloudflare Pages picks this up automatically on deploy.
+- `script-src` in the CSP is locked to `'self'` — no inline scripts are permitted or present.
+- `style-src` allows `'unsafe-inline'` because many one-off spacing/color tweaks are still done via inline `style=""` attributes in the HTML. This is a known, deliberate trade-off — inline styles are far lower risk than inline scripts. If you want to close this gap later, those inline styles would need to move into the CSS files as utility classes.
+- Form inputs are stripped of newline characters before being placed into the `mailto:` link, to prevent header-injection-style tricks in the subject/body.
+- No user data is collected or stored anywhere — the "Talk to us" / "Request a demo" forms only ever open the visitor's own email client via `mailto:`.
+
+## Deploy
+
+Static hosting only, no build step required. Intended for Cloudflare Pages:
+
+1. Connect this repo to a new Cloudflare Pages project
+2. Build command: none
+3. Build output directory: `/`
+4. Deploy — `_headers` is picked up automatically
+
+Once a custom domain (e.g. `mathelex.in`) is purchased, attach it in Cloudflare Pages settings.
+
+## Contact form
+
+The "Talk to us" / "Request a demo" modals build a `mailto:` link (opens the visitor's email client, addressed to mathelex@zohomail.in). This works without a backend. A future upgrade would replace this with a Cloudflare Function + email API for true auto-send.
+
+## Contact
+
+mathelex@zohomail.in
