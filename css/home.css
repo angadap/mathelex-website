@@ -234,7 +234,7 @@
     .node{width:48px;height:48px;}
     .hero-grid,.champion-panel,.master-wrap{grid-template-columns:1fr;}
     .feature-grid{grid-template-columns:1fr;}
-    .nav-links{display:none;}
+    .nav-pill-links{display:none;}
     .hero-space h1{font-size:36px;}
     .rocket-scene,.orrery,.obs-scene{height:220px;}
     .mission-track{flex-wrap:wrap;justify-content:center;gap:22px 14px;}
