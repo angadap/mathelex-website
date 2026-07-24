@@ -199,6 +199,20 @@
   .legend-panel h2{color:white;font-size:34px;margin-bottom:12px;}
   .legend-panel p{color:#D8D2F5;font-weight:700;margin-bottom:30px;font-size:15px;}
 
+  .download-grid{
+    display:flex;gap:20px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;
+  }
+  .download-card{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:22px;
+    padding:24px 26px;display:flex;flex-direction:column;align-items:center;gap:10px;width:220px;
+  }
+  .dl-icon{width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;}
+  .download-card b{font-family:'Fredoka One',cursive;font-weight:400;font-size:15px;color:white;}
+  .dl-note{font-size:11.5px;color:#C9C3F0;font-weight:700;line-height:1.4;min-height:32px;}
+  .dl-qr{width:110px;height:110px;border-radius:12px;background:white;padding:6px;display:block;}
+  .dl-status{font-size:11.5px;font-weight:800;color:#B7AFE0;letter-spacing:0.02em;}
+  .dl-status-live{color:var(--mint);}
+
   .contact-panel{
     max-width:1180px;margin:0 auto;background:white;border:1px solid var(--line);border-radius:32px;
     padding:44px 48px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;

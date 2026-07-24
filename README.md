@@ -41,6 +41,14 @@ Static hosting only, no build step required. Intended for Cloudflare Pages:
 
 Once a custom domain (e.g. `mathelex.in`) is purchased, attach it in Cloudflare Pages settings.
 
+## Download section (Legend tier)
+
+The homepage's "Legend" section (`#legend`) now shows two platform cards:
+- **Android** — QR code encodes the real future Play Store URL (`https://play.google.com/store/apps/details?id=in.mathmagicapp.app`). This will start working automatically the moment the app goes live on Play Store — no code change needed. The on-page button is intentionally display-only (no click-through) until then, matching the "show, don't redirect" approach used elsewhere on the site.
+- **iOS** — QR code and button both link live to `https://app.mathelex.in`, the PWA iOS users add to their Home Screen. This is fully functional today.
+
+QR source images live in `assets/qr-android.png` and `assets/qr-ios.png`. Regenerate them with the `qrcode` Python package if either destination URL ever changes.
+
 ## Contact form
 
 The "Talk to us" / "Request a demo" modals build a `mailto:` link (opens the visitor's email client, addressed to mathelex@zohomail.in). This works without a backend. A future upgrade would replace this with a Cloudflare Function + email API for true auto-send.
